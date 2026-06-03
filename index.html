@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lea Truoiolo | IT-Security Portfolio</title>
+  <style>
+    :root {
+      --bg: #15091f;
+      --card: #211330;
+      --card-2: #2b1940;
+      --text: #fff7ff;
+      --muted: #d8bedf;
+      --accent: #ff8bd1;
+      --accent-2: #b993ff;
+      --border: rgba(255, 255, 255, 0.12);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255, 139, 209, 0.16), transparent 28%),
+        radial-gradient(circle at 80% 10%, rgba(185, 147, 255, 0.18), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(21, 9, 31, 0.78);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #1a0b22;
+      box-shadow: 0 10px 30px rgba(255, 139, 209, 0.25);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 88px 0 56px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.7rem);
+      line-height: 1.04;
+      letter-spacing: -0.045em;
+      margin-bottom: 18px;
+    }
+
+    .lead {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 26px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .btn {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 12px 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-weight: 700;
+      transition: 0.2s ease;
+      cursor: pointer;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: #1a0b22;
+      border-color: transparent;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.26);
+    }
+
+    .terminal {
+      background: rgba(33, 19, 48, 0.9);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .terminal-bar {
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--muted);
+      opacity: 0.7;
+    }
+
+    .terminal-body {
+      padding: 24px;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      color: #f3dcff;
+      min-height: 310px;
+    }
+
+    .prompt {
+      color: var(--accent);
+    }
+
+    .terminal-line {
+      margin-bottom: 12px;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 9px;
+      height: 18px;
+      background: var(--accent);
+      vertical-align: middle;
+      animation: blink 1s steps(2) infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    section {
+      padding: 64px 0;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 470px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.16);
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      font-size: 1.08rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .skill-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      color: #f3dcff;
+      padding: 9px 12px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.18s ease;
+    }
+
+    .tag:hover,
+    .tag.active {
+      color: #1a0b22;
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .skill-info {
+      margin-top: 16px;
+      color: var(--muted);
+      background: rgba(255,255,255,0.035);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+      min-height: 58px;
+    }
+
+    .project-card {
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: 0.2s ease;
+    }
+
+    .project-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -40px -60px auto;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: rgba(255, 139, 209, 0.11);
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,139,209,0.42);
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0;
+    }
+
+    .mini-tag {
+      color: var(--accent);
+      background: rgba(255,139,209,0.1);
+      border: 1px solid rgba(255,139,209,0.16);
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-size: 0.78rem;
+    }
+
+    .project-details {
+      display: none;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .project-card.open .project-details {
+      display: block;
+    }
+
+    .scan-demo {
+      display: grid;
+      gap: 12px;
+    }
+
+    .scan-demo input {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.18);
+      color: var(--text);
+      border-radius: 16px;
+      padding: 13px 14px;
+      outline: none;
+      font: inherit;
+    }
+
+    .scan-result {
+      display: none;
+      margin-top: 10px;
+      border-radius: 18px;
+      background: rgba(255,139,209,0.06);
+      border: 1px solid rgba(255,139,209,0.16);
+      padding: 16px;
+      color: #f3dcff;
+    }
+
+    .scan-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 9px 12px;
+      border-radius: 12px;
+      margin-bottom: 7px;
+      font-size: 0.91rem;
+    }
+
+    .scan-item:last-child { margin-bottom: 0; }
+
+    .scan-ok  { background: rgba(0,220,100,0.09);  border: 1px solid rgba(0,220,100,0.2); }
+    .scan-warn{ background: rgba(255,200,0,0.09);  border: 1px solid rgba(255,200,0,0.22); }
+    .scan-bad { background: rgba(255,70,70,0.09);  border: 1px solid rgba(255,70,70,0.22); }
+
+    .scan-icon { flex-shrink: 0; margin-top: 1px; }
+    .scan-item strong { color: var(--text); }
+    .scan-item span   { color: var(--muted); margin-left: 4px; }
+
+    .game-card {
+      overflow: hidden;
+    }
+
+    .game-topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .game-topline p {
+      color: var(--muted);
+    }
+
+    .game-stats {
+      border: 1px solid rgba(255,139,209,0.22);
+      background: rgba(255,139,209,0.1);
+      color: var(--accent);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .game-area {
+      position: relative;
+      height: 260px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(185,147,255,0.16), rgba(21,9,31,0.2)),
+        radial-gradient(circle at 70% 25%, rgba(255,139,209,0.14), transparent 24%),
+        #180d26;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .moon {
+      position: absolute;
+      top: 28px;
+      right: 46px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(238,243,255,0.88);
+      box-shadow: 0 0 34px rgba(238,243,255,0.26);
+    }
+
+    .cloud {
+      position: absolute;
+      height: 22px;
+      width: 90px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .cloud-one { top: 72px; left: 13%; }
+    .cloud-two { top: 42px; left: 42%; width: 120px; }
+
+    .ground {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 42px;
+      background: linear-gradient(90deg, rgba(255,139,209,0.22), rgba(185,147,255,0.16));
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .mouse {
+      position: absolute;
+      left: 72px;
+      bottom: 42px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #ffb7ea, #ff79ca 70%);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+      transition: bottom 0.08s linear;
+      z-index: 2;
+    }
+
+    .mouse::before {
+      content: "";
+      position: absolute;
+      inset: auto 12px 8px 12px;
+      height: 14px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.16);
+      filter: blur(1px);
+    }
+
+    .antenna {
+      position: absolute;
+      width: 3px;
+      height: 22px;
+      background: #ff9edc;
+      top: -16px;
+      border-radius: 999px;
+      z-index: 1;
+    }
+
+    .antenna::after {
+      content: "";
+      position: absolute;
+      top: -6px;
+      left: -4px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #ffd5f1;
+      box-shadow: 0 0 0 2px rgba(255,255,255,0.15);
+    }
+
+    .antenna-left { left: 16px; transform: rotate(-18deg); }
+    .antenna-right { right: 16px; transform: rotate(18deg); }
+
+    .eye {
+      position: absolute;
+      top: 21px;
+      width: 10px;
+      height: 14px;
+      border-radius: 50%;
+      background: #1a0b22;
+      z-index: 4;
+    }
+
+    .eye::after {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: #ffffff;
+      opacity: 0.9;
+    }
+
+    .eye-left { left: 16px; }
+    .eye-right { right: 16px; }
+
+    .mouth {
+      position: absolute;
+      left: 50%;
+      bottom: 14px;
+      width: 16px;
+      height: 8px;
+      transform: translateX(-50%);
+      border-bottom: 3px solid #8f145f;
+      border-radius: 0 0 14px 14px;
+      z-index: 4;
+    }
+
+    .feet,
+    .feet::before,
+    .feet::after {
+      position: absolute;
+      content: "";
+      bottom: -6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ff92d5;
+      z-index: 1;
+    }
+
+    .feet { left: 12px; }
+    .feet::before { left: 18px; }
+    .feet::after { left: 36px; }
+
+    .bug {
+      position: absolute;
+      right: -60px;
+      bottom: 42px;
+      font-size: 34px;
+      z-index: 2;
+    }
+
+    .bug.running {
+      animation: bugRun 1.65s linear infinite;
+    }
+
+    @keyframes bugRun {
+      from { right: -60px; }
+      to { right: calc(100% + 60px); }
+    }
+
+    .mouse.jump {
+      animation: mouseJump 0.68s ease-out;
+    }
+
+    @keyframes mouseJump {
+      0% { bottom: 42px; }
+      45% { bottom: 142px; }
+      100% { bottom: 42px; }
+    }
+
+    .game-actions {
+      margin-top: 16px;
+    }
+
+    .unlock-card {
+      display: none;
+      margin-top: 18px;
+      padding: 20px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,139,209,0.22);
+      background: rgba(255,139,209,0.1);
+    }
+
+    .unlock-card.show {
+      display: block;
+      animation: unlockPop 0.35s ease;
+    }
+
+    .unlock-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .unlock-card p:not(.eyebrow) {
+      color: var(--muted);
+    }
+
+    @keyframes unlockPop {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 30px 0;
+      color: var(--muted);
+      text-align: center;
+    }
+
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .language-switch {
+      display: inline-flex;
+      gap: 6px;
+      padding: 4px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .lang-btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 7px 10px;
+      cursor: pointer;
+      color: var(--muted);
+      background: transparent;
+      font-weight: 800;
+      font: inherit;
+      font-size: 0.82rem;
+    }
+
+    .lang-btn.active {
+      background: var(--accent);
+      color: #1a0b22;
+    }
+
+    @media (max-width: 850px) {
+      .hero,
+      .grid.three,
+      .grid.two {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .section-title {
+        display: block;
+      }
+
+      .section-title p {
+        margin-top: 12px;
+      }
+    }
+
+    /* ── Particle canvas ── */
+    #particleCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    header, .mobile-menu, main, footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Scroll progress bar ── */
+    #scrollProgress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      z-index: 200;
+      pointer-events: none;
+      transition: width 0.08s linear;
+    }
+
+    /* ── Hamburger ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      padding: 6px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform 0.22s ease, opacity 0.22s ease;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── Mobile menu ── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      z-index: 9;
+      background: rgba(21, 9, 31, 0.97);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 24px;
+      flex-direction: column;
+      gap: 20px;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .mobile-menu a {
+      color: var(--muted);
+      transition: color 0.15s ease;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--accent);
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    /* ── Active nav link ── */
+    .nav-links a.nav-active {
+      color: var(--accent);
+    }
+
+    /* ── Scroll reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 850px) {
+      .hamburger { display: flex; }
+    }
+  </style>
+</head>
+<body>
+  <div id="scrollProgress" aria-hidden="true"></div>
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
+  <header>
+    <nav class="container">
+      <a class="logo" href="#top" aria-label="Startseite">
+        <span class="logo-mark">LT</span>
+        <span>Lea Truoiolo</span>
+      </a>
+      <div class="nav-actions">
+        <div class="nav-links">
+          <a href="#about" data-de="Über mich" data-en="About me">Über mich</a>
+          <a href="#skills" data-de="Skills" data-en="Skills">Skills</a>
+          <a href="#projects" data-de="Projekte" data-en="Projects">Projekte</a>
+          <a href="#challenge" data-de="Mini Challenge" data-en="Mini Challenge">Mini Challenge</a>
+          <a href="#contact" data-de="Kontakt" data-en="Contact">Kontakt</a>
+        </div>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menü öffnen" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        <div class="language-switch" aria-label="Sprache auswählen">
+          <button class="lang-btn active" type="button" data-lang="de">DE</button>
+          <button class="lang-btn" type="button" data-lang="en">EN</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile Navigation">
+    <a href="#about" data-de="Über mich" data-en="About me">Über mich</a>
+    <a href="#skills" data-de="Skills" data-en="Skills">Skills</a>
+    <a href="#projects" data-de="Projekte" data-en="Projects">Projekte</a>
+    <a href="#challenge" data-de="Mini Challenge" data-en="Mini Challenge">Mini Challenge</a>
+    <a href="#contact" data-de="Kontakt" data-en="Contact">Kontakt</a>
+  </nav>
+
+  <main id="top" class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow" data-de="Online-Lebenslauf · IT-Security · Web" data-en="Online CV · IT Security · Web">Online-Lebenslauf · IT-Security · Web</p>
+        <h1 data-de="Hey, ich bin Lea." data-en="Hey, I am Lea.">Hey, ich bin Lea.</h1>
+        <p class="lead" data-de="Das ist mein kleiner Online-Lebenslauf: kurz, persönlich und mit ein paar Projekten aus meinem Studium und meiner Praxis." data-en="This is my small online CV: short, personal and with a few projects from my studies and practical experience.">
+          Das ist mein kleiner Online-Lebenslauf: kurz, persönlich und mit ein paar Projekten aus meinem Studium und meiner Praxis.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="#projects" data-de="Projekte ansehen" data-en="View projects">Projekte ansehen</a>
+          <a class="btn" href="#contact" data-de="Kontakt ansehen" data-en="View contact">Kontakt ansehen</a>
+          <a class="btn" href="./lebenslauf.pdf" target="_blank" rel="noreferrer" data-de="Lebenslauf öffnen" data-en="Open CV">Lebenslauf öffnen</a>
+        </div>
+      </div>
+
+      <aside class="terminal" aria-label="Terminal Demo">
+        <div class="terminal-bar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+        <div class="terminal-body" id="terminalBody"></div>
+      </aside>
+    </section>
+
+    <section id="about">
+      <div class="section-title">
+        <h2 data-de="Über mich" data-en="About me">Über mich</h2>
+        <p data-de="Das bin ich, kurz und persönlich." data-en="Short and personal – this is me.">Das bin ich, kurz und persönlich.</p>
+      </div>
+      <div class="grid three">
+        <article class="card">
+          <h3 data-de="Das bin ich" data-en="Who I am">Das bin ich</h3>
+          <p data-de="Ich bin Lea, 22 Jahre alt, studiere IT-Sicherheit und mag es, technische Themen nicht nur theoretisch zu verstehen, sondern praktisch umzusetzen." data-en="I am Lea, 22 years old, studying IT Security. I like understanding technical topics and turning them into practical solutions.">Ich bin Lea, 22 Jahre alt, studiere IT-Sicherheit und mag es, technische Themen nicht nur theoretisch zu verstehen, sondern praktisch umzusetzen.</p>
+        </article>
+        <article class="card">
+          <h3 data-de="Praxis im IT-Support" data-en="Practical IT support experience">Praxis im IT-Support</h3>
+          <p data-de="In meiner Werkstudentenstelle arbeite ich mit Arbeitsplatzkonfiguration, OS-Deployment, Netzwerkeinbindung, Peripherie und strukturierter Fehleranalyse." data-en="In my working student role, I work on workstation setup, OS deployment, network integration, peripherals and structured troubleshooting.">In meiner Werkstudentenstelle arbeite ich mit Arbeitsplatzkonfiguration, OS-Deployment, Netzwerkeinbindung, Peripherie und strukturierter Fehleranalyse.</p>
+        </article>
+        <article class="card">
+          <h3 data-de="Was mich interessiert" data-en="What I am interested in">Was mich interessiert</h3>
+          <p data-de="Besonders spannend finde ich Web-Security, Netzwerke, Kryptografie und kleine Tools, die technische Zusammenhänge verständlich sichtbar machen." data-en="I am especially interested in web security, networks, cryptography and small tools that make technical topics easier to understand.">Besonders spannend finde ich Web-Security, Netzwerke, Kryptografie und kleine Tools, die technische Zusammenhänge verständlich sichtbar machen.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-title">
+        <h2 data-de="Skills" data-en="Skills">Skills</h2>
+        <p data-de="Klick auf einen Skill, um kurz zu sehen, wie ich ihn einordne." data-en="Click on a skill to see how I use it.">Klick auf einen Skill, um kurz zu sehen, wie ich ihn einordne.</p>
+      </div>
+      <div class="card">
+        <div class="skill-cloud" id="skillCloud">
+          <button class="tag" data-info-de="Python nutze ich für Automatisierung, kleine Security-Tools und Datenverarbeitung." data-info-en="I use Python for automation, small security tools and data processing.">Python</button>
+          <button class="tag" data-info-de="C und C++ kenne ich aus dem Studium, besonders für Grundlagen, Speicherverständnis und objektorientierte Konzepte." data-info-en="I know C and C++ from my studies, especially for fundamentals, memory concepts and object-oriented programming.">C / C++</button>
+          <button class="tag" data-info-de="HTML, CSS und JavaScript nutze ich für Webformulare, Portfolios und interaktive Frontend-Demos." data-info-en="I use HTML, CSS and JavaScript for web forms, portfolios and interactive frontend demos.">HTML / CSS / JavaScript</button>
+          <button class="tag" data-info-de="Linux und CLI nutze ich für technische Analyse, Dateisysteme, Prozesse und typische Admin-Aufgaben." data-info-en="I use Linux and the command line for technical analysis, file systems, processes and common admin tasks.">Linux / CLI</button>
+          <button class="tag" data-info-de="Git nutze ich zur Versionskontrolle und für nachvollziehbare Projektarbeit auf GitHub." data-info-en="I use Git for version control and transparent project work on GitHub.">Git</button>
+          <button class="tag" data-info-de="Netzwerke sind für mich ein wichtiger Bereich in der IT-Security, zum Beispiel Protokolle, Kommunikation und Fehlersuche." data-info-en="Networks are an important part of IT security for me, including protocols, communication and troubleshooting.">Netzwerke</button>
+          <button class="tag" data-info-de="Kryptografie interessiert mich besonders, weil sie die Grundlage sicherer Kommunikation bildet." data-info-en="I am especially interested in cryptography because it is a foundation for secure communication.">Kryptografie</button>
+        </div>
+        <div class="skill-info" id="skillInfo" data-de="Wähle einen Skill aus." data-en="Choose a skill.">Wähle einen Skill aus.</div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-title">
+        <h2 data-de="Projekte" data-en="Projects">Projekte</h2>
+        <p data-de="Das sind Projekte, die ich bisher im Studium, in eigenen Übungen oder aktuell im Team umgesetzt habe." data-en="These are projects I have worked on during my studies, in my own exercises or currently in a team.">Das sind Projekte, die ich bisher im Studium, in eigenen Übungen oder aktuell im Team umgesetzt habe.</p>
+      </div>
+
+      <div class="grid two">
+        <article class="card project-card" tabindex="0">
+          <h3 data-de="Online-Lebenslauf Website" data-en="Online CV website">Online-Lebenslauf Website</h3>
+          <p data-de="Diese Portfolio-Website ist mein kleiner Online-Lebenslauf. Ich habe sie mit HTML, CSS und JavaScript erstellt." data-en="This portfolio website is my small online CV. I built it with HTML, CSS and JavaScript.">Diese Portfolio-Website ist mein kleiner Online-Lebenslauf. Ich habe sie mit HTML, CSS und JavaScript erstellt.</p>
+          <div class="project-meta">
+            <span class="mini-tag">HTML</span>
+            <span class="mini-tag">CSS</span>
+            <span class="mini-tag">JavaScript</span>
+          </div>
+          <div class="project-details">
+            <p data-de="Enthält klickbare Skill-Tags, Projektkarten, eine kleine Security-Demo und eine Mini-Challenge. Damit möchte ich meine Bewerbung persönlicher machen und zeigen, dass ich einfache Web-Interaktionen selbst umsetzen kann." data-en="It includes clickable skill tags, project cards, a small security demo and a mini challenge. The goal is to make my application more personal and show that I can build simple web interactions myself.">Enthält klickbare Skill-Tags, Projektkarten, eine kleine Security-Demo und eine Mini-Challenge. Damit möchte ich meine Bewerbung persönlicher machen und zeigen, dass ich einfache Web-Interaktionen selbst umsetzen kann.</p>
+          </div>
+        </article>
+
+        <article class="card project-card" tabindex="0">
+          <h3 data-de="Schiffe versenken" data-en="Battleships game">Schiffe versenken</h3>
+          <p data-de="Ein kleines Spielprojekt aus dem Programmierumfeld, bei dem Spiellogik und Benutzereingaben umgesetzt wurden." data-en="A small programming project where I implemented game logic and user input.">Ein kleines Spielprojekt aus dem Programmierumfeld, bei dem Spiellogik und Benutzereingaben umgesetzt wurden.</p>
+          <div class="project-meta">
+            <span class="mini-tag" data-de="Programmierung" data-en="Programming">Programmierung</span>
+            <span class="mini-tag" data-de="Logik" data-en="Logic">Logik</span>
+            <span class="mini-tag" data-de="Game Basics" data-en="Game basics">Game Basics</span>
+          </div>
+          <div class="project-details">
+            <p data-de="Bei diesem Projekt ging es vor allem darum, Spielregeln in Code zu übersetzen, Zustände zu verwalten und Benutzeraktionen sinnvoll zu verarbeiten." data-en="The focus was on translating game rules into code, managing states and handling user actions in a clear way.">Bei diesem Projekt ging es vor allem darum, Spielregeln in Code zu übersetzen, Zustände zu verwalten und Benutzeraktionen sinnvoll zu verarbeiten.</p>
+          </div>
+        </article>
+
+        <article class="card project-card" tabindex="0">
+          <h3 data-de="IT-Security Projekt: Makro-Angriff im Labor" data-en="IT security project: macro attack in a lab">IT-Security Projekt: Makro-Angriff im Labor</h3>
+          <p data-de="Gemeinsam mit einem Mitstudenten habe ich in einem autorisierten Laborprojekt untersucht, wie Makros als Angriffsweg genutzt werden können." data-en="Together with another student, I explored how macros can be used as an attack path in an authorized lab project.">Gemeinsam mit einem Mitstudenten habe ich in einem autorisierten Laborprojekt untersucht, wie Makros als Angriffsweg genutzt werden können.</p>
+          <div class="project-meta">
+            <span class="mini-tag">IT-Security</span>
+            <span class="mini-tag" data-de="Makros" data-en="Macros">Makros</span>
+            <span class="mini-tag">Awareness</span>
+          </div>
+          <div class="project-details">
+            <p data-de="Der Fokus lag darauf, Angriffsmethoden in einer kontrollierten Umgebung zu verstehen und daraus Sicherheitsmaßnahmen und Risiken abzuleiten." data-en="The focus was on understanding attack methods in a controlled environment and deriving security measures and risks from them.">Der Fokus lag darauf, Angriffsmethoden in einer kontrollierten Umgebung zu verstehen und daraus Sicherheitsmaßnahmen und Risiken abzuleiten.</p>
+          </div>
+        </article>
+
+        <article class="card project-card" tabindex="0">
+          <h3 data-de="Aktuelles Projekt: Security-Website für Märklin" data-en="Current project: security website for Märklin">Aktuelles Projekt: Security-Website für Märklin</h3>
+          <p data-de="Aktuell arbeiten wir an einer Website, die Sicherheitsaspekte von Hardware-Geräten testet und übersichtlich darstellt." data-en="We are currently working on a website that tests and presents security aspects of hardware devices.">Aktuell arbeiten wir an einer Website, die Sicherheitsaspekte von Hardware-Geräten testet und übersichtlich darstellt.</p>
+          <div class="project-meta">
+            <span class="mini-tag">Web</span>
+            <span class="mini-tag">Hardware Security</span>
+            <span class="mini-tag" data-de="Teamprojekt" data-en="Team project">Teamprojekt</span>
+          </div>
+          <div class="project-details">
+            <p data-de="Ziel ist eine verständliche Oberfläche, über die sicherheitsrelevante Informationen zu Hardware-Geräten geprüft, dokumentiert und nachvollziehbar angezeigt werden können." data-en="The goal is a clear interface where security-related information about hardware devices can be checked, documented and displayed in a understandable way.">Ziel ist eine verständliche Oberfläche, über die sicherheitsrelevante Informationen zu Hardware-Geräten geprüft, dokumentiert und nachvollziehbar angezeigt werden können.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="card" style="margin-top:18px;">
+        <h3 data-de="Mini-Demo: Security Check" data-en="Mini demo: security check">Mini-Demo: Security Check</h3>
+        <p style="margin-bottom:14px;" data-de="URL eingeben – die Analyse prüft sofort was direkt aus der Adresse erkennbar ist: HTTPS, Domain, verdächtige Zeichen, URL-Länge und ob der Server antwortet." data-en="Enter a URL – the analyser instantly checks what is readable from the address itself: HTTPS, domain, suspicious characters, URL length and whether the server responds.">
+          URL eingeben – die Analyse prüft sofort was direkt aus der Adresse erkennbar ist: HTTPS, Domain, verdächtige Zeichen, URL-Länge und ob der Server antwortet.
+        </p>
+        <div class="scan-demo">
+          <input id="urlInput" type="text" placeholder="https://example.com" data-placeholder-de="https://example.com" data-placeholder-en="https://example.com" />
+          <button class="btn primary" id="scanBtn" data-de="Scan starten" data-en="Start scan">Scan starten</button>
+          <div class="scan-result" id="scanResult"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="challenge">
+      <div class="section-title">
+        <h2 data-de="Security Mini Challenge" data-en="Security mini challenge">Security Mini Challenge</h2>
+        <p data-de="Springe mit dem pinken Alien über 3 Bugs. Danach wird eine kleine Extra-Info freigeschaltet." data-en="Jump over 3 bugs with the pink alien. After that, a small extra info will be unlocked.">Springe mit dem pinken Alien über 3 Bugs. Danach wird eine kleine Extra-Info freigeschaltet.</p>
+      </div>
+
+      <div class="card game-card">
+        <div class="game-topline">
+          <div>
+            <h3>Alien.exe vs. Bugs</h3>
+            <p data-de="Drücke Leertaste oder klicke/tippe auf das Spielfeld, um zu springen." data-en="Press space or click/tap the game area to jump.">Drücke Leertaste oder klicke/tippe auf das Spielfeld, um zu springen.</p>
+          </div>
+          <div class="game-stats">
+            <span id="gameScore">0 / 3</span>
+          </div>
+        </div>
+
+        <div class="game-area" id="gameArea" aria-label="Mini-Spiel: Pinkes Alien springt über Bugs" tabindex="0">
+          <div class="moon"></div>
+          <div class="cloud cloud-one"></div>
+          <div class="cloud cloud-two"></div>
+          <div class="mouse" id="mouse">
+            <span class="antenna antenna-left"></span>
+            <span class="antenna antenna-right"></span>
+            <span class="eye eye-left"></span>
+            <span class="eye eye-right"></span>
+            <span class="mouth"></span>
+            <span class="feet"></span>
+          </div>
+          <div class="bug" id="bug">🐞</div>
+          <div class="ground"></div>
+        </div>
+
+        <div class="actions game-actions">
+          <button class="btn primary" id="startGameBtn" data-de="Challenge starten" data-en="Start challenge">Challenge starten</button>
+          <button class="btn" id="resetGameBtn" data-de="Reset" data-en="Reset">Reset</button>
+        </div>
+
+        <div class="unlock-card" id="unlockCard">
+          <p class="eyebrow">Access granted</p>
+          <h3 data-de="Extra-Info freigeschaltet" data-en="Extra info unlocked">Extra-Info freigeschaltet</h3>
+          <p data-de="Challenge geschafft. Mein aktueller Notendurchschnitt im Studium liegt bei 2,1. Kleiner Real Talk: Diskrete Mathematik war leider mein schwächstes Fach mit 4,0. Dafür liefen meine Security-Fächer deutlich besser, zum Beispiel Kryptografie 1,7, Safety and Security 1,7, Rechnernetze 2,0 und Offensive Sicherheit 2,0." data-en="Challenge completed. My current university grade average is 2.1. Small real-talk moment: Discrete Mathematics was unfortunately my weakest subject with a 4.0. On the other hand, my security-related modules went much better, for example Cryptography 1.7, Safety and Security 1.7, Computer Networks 2.0 and Offensive Security 2.0.">
+            Challenge geschafft. Mein aktueller Notendurchschnitt im Studium liegt bei 2,1. Kleiner Real Talk: Diskrete Mathematik war leider mein schwächstes Fach mit 4,0. Dafür liefen meine Security-Fächer deutlich besser, zum Beispiel Kryptografie 1,7, Safety and Security 1,7, Rechnernetze 2,0 und Offensive Sicherheit 2,0.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">
+        <h2 data-de="Kontakt" data-en="Contact">Kontakt</h2>
+        <p data-de="Ich suche aktuell eine Praxissemesterstelle im Bereich IT-Security, IT-Support, Web oder Systemadministration." data-en="I am currently looking for an internship semester position in IT security, IT support, web or system administration.">Ich suche aktuell eine Praxissemesterstelle im Bereich IT-Security, IT-Support, Web oder Systemadministration.</p>
+      </div>
+      <div class="grid two">
+        <div class="card project-card" id="contactCard" tabindex="0">
+          <h3 data-de="Kontakt" data-en="Contact">Kontakt</h3>
+          <p data-de="Klicken zum Aufklappen." data-en="Click to open.">Klicken zum Aufklappen.</p>
+          <div class="project-details">
+            <p style="margin-bottom:10px; color: var(--muted);" data-de="E-Mail" data-en="Email">E-Mail</p>
+            <p style="margin-bottom:18px;"><a href="mailto:leatruoiolo@gmail.com" onclick="event.stopPropagation()" style="color: var(--text); text-decoration: none; border-bottom: 1px solid var(--muted);">leatruoiolo@gmail.com</a></p>
+            <p style="margin-bottom:10px; color: var(--muted);" data-de="Telefon" data-en="Phone">Telefon</p>
+            <p><a href="tel:+4915223593729" onclick="event.stopPropagation()" style="color: var(--text); text-decoration: none; border-bottom: 1px solid var(--muted);">0152 23593729</a></p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 data-de="Links & Unterlagen" data-en="Links & documents">Links & Unterlagen</h3>
+          <p style="margin-bottom:18px; color: var(--muted);" data-de="Hier finden Sie meine wichtigsten Links und Dokumente für die Bewerbung." data-en="Here you can find my most important links and application documents.">
+            Hier finden Sie meine wichtigsten Links und Dokumente für die Bewerbung.
+          </p>
+          <div class="actions">
+            <a class="btn" href="./lebenslauf.pdf" target="_blank" rel="noreferrer" data-de="Lebenslauf" data-en="CV">Lebenslauf</a>
+<a class="btn" href="#top" data-de="Nach oben" data-en="Back to top">Nach oben</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Lea Truoiolo · Portfolio Website</div>
+  </footer>
+
+  <script>
+    let currentLanguage = 'de';
+
+    function setLanguage(language) {
+      currentLanguage = language;
+      document.documentElement.lang = language;
+
+      document.querySelectorAll('[data-de][data-en]').forEach((element) => {
+        element.textContent = element.dataset[language];
+      });
+
+      document.querySelectorAll('[data-placeholder-de][data-placeholder-en]').forEach((element) => {
+        element.placeholder = element.dataset[`placeholder${language === 'de' ? 'De' : 'En'}`];
+      });
+
+      document.querySelectorAll('.lang-btn').forEach((button) => {
+        button.classList.toggle('active', button.dataset.lang === language);
+      });
+
+      runTerminal(language);
+
+      const activeSkill = document.querySelector('.tag.active');
+      if (activeSkill) {
+        skillInfo.textContent = activeSkill.dataset[language === 'de' ? 'infoDe' : 'infoEn'];
+      } else {
+        skillInfo.textContent = skillInfo.dataset[language];
+      }
+
+      if (!gameRunning && passedBugs === 0) {
+        startGameBtn.textContent = startGameBtn.dataset[language];
+      }
+    }
+
+    document.querySelectorAll('.lang-btn').forEach((button) => {
+      button.addEventListener('click', () => setLanguage(button.dataset.lang));
+    });
+
+    const skillButtons = document.querySelectorAll('.tag');
+    const skillInfo = document.getElementById('skillInfo');
+
+    skillButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        skillButtons.forEach((btn) => btn.classList.remove('active'));
+        button.classList.add('active');
+        skillInfo.textContent = button.dataset[currentLanguage === 'de' ? 'infoDe' : 'infoEn'];
+      });
+    });
+
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach((card) => {
+      const toggle = () => card.classList.toggle('open');
+      card.addEventListener('click', toggle);
+      card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          toggle();
+        }
+      });
+    });
+
+    const scanBtn = document.getElementById('scanBtn');
+    const scanResult = document.getElementById('scanResult');
+    const urlInput = document.getElementById('urlInput');
+
+    const SUSPICIOUS_TLDS = new Set(['.tk','.ml','.ga','.cf','.gq','.xyz','.top','.click','.zip','.work','.loan','.win','.download','.ru','.cn']);
+
+    async function analyzeUrl(raw, lang) {
+      const de = lang === 'de';
+      const results = [];
+      let urlStr = raw.trim();
+      if (!/^https?:\/\//i.test(urlStr)) urlStr = 'https://' + urlStr;
+
+      let url;
+      try { url = new URL(urlStr); } catch {
+        return [{ status: 'bad', label: de ? 'Fehler' : 'Error', text: de ? 'Ungültige URL – bitte prüfen.' : 'Invalid URL – please check.' }];
+      }
+
+      // Basis-Validierung: echte Domain braucht mindestens einen Punkt
+      if (!url.hostname.includes('.')) {
+        return [{ status: 'bad', label: de ? 'Keine Domain' : 'No domain', text: de ? 'Das sieht nicht wie eine echte Adresse aus – bitte z. B. https://example.com eingeben.' : 'This doesn\'t look like a real address – try e.g. https://example.com.' }];
+      }
+
+      // 1. HTTPS
+      if (url.protocol === 'https:') {
+        results.push({ status: 'ok', label: 'HTTPS', text: de ? 'HTTPS im Link angegeben – Verschlüsselung erwartet' : 'HTTPS specified in link – encryption expected' });
+      } else {
+        results.push({ status: 'bad', label: 'HTTPS', text: de ? 'Kein HTTPS – Daten werden unverschlüsselt übertragen' : 'No HTTPS – data sent unencrypted' });
+      }
+
+      // 2. IP statt Domain
+      if (/^(\d{1,3}\.){3}\d{1,3}$/.test(url.hostname)) {
+        results.push({ status: 'warn', label: 'Domain', text: de ? 'IP-Adresse statt Domain – bei Phishing häufig' : 'IP address instead of domain – common in phishing' });
+      } else {
+        results.push({ status: 'ok', label: 'Domain', text: url.hostname });
+      }
+
+      // 3. TLD
+      const tld = '.' + url.hostname.split('.').pop().toLowerCase();
+      if (SUSPICIOUS_TLDS.has(tld)) {
+        results.push({ status: 'warn', label: 'TLD', text: de ? `„${tld}" wird oft für Phishing genutzt` : `"${tld}" is often used for phishing` });
+      }
+
+      // 4. Subdomain-Tiefe
+      const parts = url.hostname.split('.');
+      if (parts.length > 3) {
+        results.push({ status: 'warn', label: de ? 'Subdomains' : 'Subdomains', text: de ? `${parts.length - 2} Subdomain-Ebenen – bei Phishing typisch` : `${parts.length - 2} subdomain levels – typical in phishing` });
+      }
+
+      // 5. URL-Länge
+      if (urlStr.length > 100) {
+        results.push({ status: 'warn', label: de ? 'URL-Länge' : 'URL length', text: de ? `${urlStr.length} Zeichen – ungewöhnlich lang` : `${urlStr.length} chars – unusually long` });
+      } else {
+        results.push({ status: 'ok', label: de ? 'URL-Länge' : 'URL length', text: de ? `${urlStr.length} Zeichen – unauffällig` : `${urlStr.length} chars – looks normal` });
+      }
+
+      // 6. Sonderzeichen im Domain
+      if (/[^a-zA-Z0-9\-.]/.test(url.hostname)) {
+        results.push({ status: 'warn', label: de ? 'Sonderzeichen' : 'Special chars', text: de ? 'Ungewöhnliche Zeichen im Domain – möglicher Homograph-Angriff' : 'Unusual chars in domain – possible homograph attack' });
+      }
+
+      // 7. Nicht-Standard-Port
+      if (url.port && !['80','443'].includes(url.port)) {
+        results.push({ status: 'warn', label: 'Port', text: de ? `Nicht-Standard-Port ${url.port} erkannt` : `Non-standard port ${url.port} detected` });
+      }
+
+      // 8. Erreichbarkeit (echter Fetch)
+      try {
+        const ctrl = new AbortController();
+        const t = setTimeout(() => ctrl.abort(), 5000);
+        await fetch(urlStr, { mode: 'no-cors', signal: ctrl.signal });
+        clearTimeout(t);
+        results.push({ status: 'ok', label: de ? 'Erreichbarkeit' : 'Reachability', text: de ? 'Server antwortet' : 'Server is responding' });
+      } catch (e) {
+        results.push({ status: 'warn', label: de ? 'Erreichbarkeit' : 'Reachability',
+          text: e.name === 'AbortError'
+            ? (de ? 'Keine Antwort (Timeout nach 5s)' : 'No response (timeout after 5s)')
+            : (de ? 'Server nicht erreichbar' : 'Server not reachable') });
+      }
+
+      return results;
+    }
+
+    function renderScanResults(results, heading) {
+      scanResult.innerHTML = '';
+      if (heading) {
+        const h = document.createElement('strong');
+        h.style.cssText = 'display:block;margin-bottom:12px;font-size:0.95rem;';
+        h.textContent = heading;
+        scanResult.appendChild(h);
+      }
+      results.forEach((r) => {
+        const icon = r.status === 'ok' ? '✅' : r.status === 'warn' ? '⚠️' : '❌';
+        const div = document.createElement('div');
+        div.className = `scan-item scan-${r.status}`;
+        div.innerHTML = `<span class="scan-icon">${icon}</span><div><strong>${r.label}</strong><span>${r.text}</span></div>`;
+        scanResult.appendChild(div);
+      });
+      scanResult.style.display = 'block';
+    }
+
+    scanBtn.addEventListener('click', async () => {
+      const value = urlInput.value.trim();
+      if (!value) return;
+      const de = currentLanguage === 'de';
+      scanBtn.disabled = true;
+      scanBtn.textContent = de ? 'Läuft…' : 'Scanning…';
+      scanResult.style.display = 'none';
+
+      const results = await analyzeUrl(value, currentLanguage);
+      const heading = de ? `Ergebnis für ${value}:` : `Result for ${value}:`;
+      renderScanResults(results, heading);
+
+      scanBtn.disabled = false;
+      scanBtn.textContent = scanBtn.dataset[currentLanguage];
+    });
+
+    const gameArea = document.getElementById('gameArea');
+    const mouse = document.getElementById('mouse');
+    const bug = document.getElementById('bug');
+    const startGameBtn = document.getElementById('startGameBtn');
+    const resetGameBtn = document.getElementById('resetGameBtn');
+    const gameScore = document.getElementById('gameScore');
+    const unlockCard = document.getElementById('unlockCard');
+
+    let gameRunning = false;
+    let passedBugs = 0;
+    let collisionTimer = null;
+    let pointTimer = null;
+
+    function jump() {
+      if (!gameRunning || mouse.classList.contains('jump')) return;
+      mouse.classList.add('jump');
+      setTimeout(() => mouse.classList.remove('jump'), 680);
+    }
+
+    function startGame() {
+      resetGame();
+      gameRunning = true;
+      startGameBtn.textContent = currentLanguage === 'de' ? 'Läuft...' : 'Running...';
+      bug.classList.add('running');
+      gameArea.focus();
+
+      pointTimer = setInterval(() => {
+        if (!gameRunning) return;
+        passedBugs += 1;
+        gameScore.textContent = `${passedBugs} / 3`;
+
+        if (passedBugs >= 3) {
+          winGame();
+        }
+      }, 1650);
+
+      collisionTimer = setInterval(checkCollision, 30);
+    }
+
+    function resetGame() {
+      gameRunning = false;
+      passedBugs = 0;
+      gameScore.textContent = '0 / 3';
+      startGameBtn.textContent = startGameBtn.dataset[currentLanguage];
+      bug.classList.remove('running');
+      mouse.classList.remove('jump');
+      unlockCard.classList.remove('show');
+      clearInterval(collisionTimer);
+      clearInterval(pointTimer);
+    }
+
+    function winGame() {
+      gameRunning = false;
+      bug.classList.remove('running');
+      startGameBtn.textContent = currentLanguage === 'de' ? 'Geschafft ✅' : 'Done ✅';
+      unlockCard.classList.add('show');
+      clearInterval(collisionTimer);
+      clearInterval(pointTimer);
+    }
+
+    function loseGame() {
+      gameRunning = false;
+      bug.classList.remove('running');
+      startGameBtn.textContent = currentLanguage === 'de' ? 'Nochmal versuchen' : 'Try again';
+      clearInterval(collisionTimer);
+      clearInterval(pointTimer);
+      gameScore.textContent = currentLanguage === 'de'
+        ? `${passedBugs} / 3 · Bug getroffen`
+        : `${passedBugs} / 3 · Bug hit`;
+    }
+
+    function checkCollision() {
+      const mouseRect = mouse.getBoundingClientRect();
+      const bugRect = bug.getBoundingClientRect();
+      const overlap = !(
+        mouseRect.right < bugRect.left + 8 ||
+        mouseRect.left > bugRect.right - 8 ||
+        mouseRect.bottom < bugRect.top + 8 ||
+        mouseRect.top > bugRect.bottom - 8
+      );
+
+      if (overlap) {
+        loseGame();
+      }
+    }
+
+    const contactCard = document.getElementById('contactCard');
+
+    document.querySelectorAll('a[href="#contact"]').forEach((link) => {
+      link.addEventListener('click', () => {
+        setTimeout(() => {
+          if (contactCard) {
+            contactCard.classList.add('open');
+          }
+        }, 250);
+      });
+    });
+
+    startGameBtn.addEventListener('click', startGame);
+    resetGameBtn.addEventListener('click', resetGame);
+    gameArea.addEventListener('click', jump);
+    document.addEventListener('keydown', (event) => {
+      if (event.code === 'Space') {
+        event.preventDefault();
+        jump();
+      }
+    });
+
+    // ── Terminal Typewriter ──
+    const terminalBody = document.getElementById('terminalBody');
+    const PROMPT_HTML = '<span class="prompt">lea@portfolio:~$</span>';
+
+    const terminalSequence = [
+      { kind: 'cmd', text: 'whoami' },
+      { kind: 'out', de: 'Lea Truoiolo, 22 Jahre, IT-Security Studentin', en: 'Lea Truoiolo, 22 years old, IT Security student' },
+      { kind: 'cmd', text: 'skills --top' },
+      { kind: 'out', de: 'Python · C/C++ · Linux · Git · Netzwerke · Kryptografie', en: 'Python · C/C++ · Linux · Git · Networks · Cryptography' },
+      { kind: 'cmd', text: 'status' },
+      { kind: 'out', de: 'Online-Lebenslauf geladen · Projekte verfügbar · Kontakt bereit', en: 'Online CV loaded · Projects available · Contact ready' },
+    ];
+
+    let typingTimers = [];
+
+    function clearTyping() {
+      typingTimers.forEach(clearTimeout);
+      typingTimers = [];
+    }
+
+    function typeInto(el, text, speed, done) {
+      let i = 0;
+      (function step() {
+        el.textContent = text.slice(0, ++i);
+        if (i < text.length) {
+          typingTimers.push(setTimeout(step, speed));
+        } else if (done) done();
+      })();
+    }
+
+    function runTerminal(lang) {
+      clearTyping();
+      terminalBody.innerHTML = '';
+      let delay = 0;
+
+      terminalSequence.forEach((line) => {
+        const p = document.createElement('p');
+        p.className = 'terminal-line';
+        terminalBody.appendChild(p);
+
+        if (line.kind === 'cmd') {
+          typingTimers.push(setTimeout(() => {
+            p.innerHTML = PROMPT_HTML + ' ';
+            const span = document.createElement('span');
+            p.appendChild(span);
+            typeInto(span, line.text, 48);
+          }, delay));
+          delay += 320 + line.text.length * 48 + 180;
+        } else {
+          const text = line[lang] || line.de;
+          typingTimers.push(setTimeout(() => typeInto(p, text, 22), delay));
+          delay += text.length * 22 + 200;
+        }
+      });
+
+      typingTimers.push(setTimeout(() => {
+        const p = document.createElement('p');
+        p.className = 'terminal-line';
+        p.innerHTML = PROMPT_HTML + ' <span class="cursor"></span>';
+        terminalBody.appendChild(p);
+      }, delay));
+    }
+
+    runTerminal(currentLanguage);
+
+    // ── Particle Background ──
+    (function () {
+      const canvas = document.getElementById('particleCanvas');
+      const ctx = canvas.getContext('2d');
+      const COLORS = ['rgba(255,139,209,', 'rgba(185,147,255,', 'rgba(255,255,255,'];
+      const COUNT = 72;
+      let particles = [];
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize, { passive: true });
+
+      function makeParticle() {
+        return {
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 1.6 + 0.3,
+          dx: (Math.random() - 0.5) * 0.28,
+          dy: (Math.random() - 0.5) * 0.28,
+          color: COLORS[Math.floor(Math.random() * COLORS.length)],
+          baseAlpha: Math.random() * 0.32 + 0.08,
+          phase: Math.random() * Math.PI * 2,
+        };
+      }
+
+      for (let i = 0; i < COUNT; i++) particles.push(makeParticle());
+
+      function tick() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((p) => {
+          p.x += p.dx;
+          p.y += p.dy;
+          p.phase += 0.011;
+          if (p.x < 0) p.x = canvas.width;
+          if (p.x > canvas.width) p.x = 0;
+          if (p.y < 0) p.y = canvas.height;
+          if (p.y > canvas.height) p.y = 0;
+          const a = p.baseAlpha * (0.65 + 0.35 * Math.sin(p.phase));
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = p.color + a + ')';
+          ctx.fill();
+        });
+        requestAnimationFrame(tick);
+      }
+      tick();
+    })();
+
+    // ── Scroll progress bar ──
+    const scrollProgress = document.getElementById('scrollProgress');
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      scrollProgress.style.width = total > 0 ? (scrolled / total * 100) + '%' : '0%';
+    }, { passive: true });
+
+    // ── Hamburger menu ──
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburgerBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburgerBtn.classList.toggle('open', isOpen);
+      hamburgerBtn.setAttribute('aria-expanded', isOpen);
+    });
+
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburgerBtn.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // ── Active nav highlighting ──
+    const allSections = document.querySelectorAll('section[id]');
+    const allNavLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          allNavLinks.forEach((link) => {
+            link.classList.toggle('nav-active', link.getAttribute('href') === '#' + entry.target.id);
+          });
+        }
+      });
+    }, { threshold: 0.35 });
+
+    allSections.forEach((section) => navObserver.observe(section));
+
+    // ── Scroll reveal animations ──
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.card, .terminal, .section-title').forEach((el) => {
+      el.classList.add('reveal');
+      if (el.getBoundingClientRect().top < window.innerHeight) {
+        el.classList.add('visible'); // already in view on load – show immediately
+      } else {
+        revealObserver.observe(el);
+      }
+    });
+  </script>
+</body>
+</html>
