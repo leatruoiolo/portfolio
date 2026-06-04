@@ -634,7 +634,6 @@
       text-align: center;
     }
 
-
     .nav-actions {
       display: flex;
       align-items: center;
@@ -687,7 +686,6 @@
       }
     }
 
-    /* ── Particle canvas ── */
     #particleCanvas {
       position: fixed;
       inset: 0;
@@ -702,7 +700,6 @@
       z-index: 1;
     }
 
-    /* ── Scroll progress bar ── */
     #scrollProgress {
       position: fixed;
       top: 0;
@@ -715,7 +712,6 @@
       transition: width 0.08s linear;
     }
 
-    /* ── Hamburger ── */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -740,7 +736,6 @@
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* ── Mobile menu ── */
     .mobile-menu {
       display: none;
       position: fixed;
@@ -771,12 +766,10 @@
       display: flex;
     }
 
-    /* ── Active nav link ── */
     .nav-links a.nav-active {
       color: var(--accent);
     }
 
-    /* ── Scroll reveal ── */
     .reveal {
       opacity: 0;
       transform: translateY(26px);
@@ -796,6 +789,7 @@
 <body>
   <div id="scrollProgress" aria-hidden="true"></div>
   <canvas id="particleCanvas" aria-hidden="true"></canvas>
+
   <header>
     <nav class="container">
       <a class="logo" href="#top" aria-label="Startseite">
@@ -811,8 +805,8 @@
           <a href="#contact" data-de="Kontakt" data-en="Contact">Kontakt</a>
         </div>
         <button class="hamburger" id="hamburgerBtn" aria-label="Menü öffnen" aria-expanded="false">
-            <span></span><span></span><span></span>
-          </button>
+          <span></span><span></span><span></span>
+        </button>
         <div class="language-switch" aria-label="Sprache auswählen">
           <button class="lang-btn active" type="button" data-lang="de">DE</button>
           <button class="lang-btn" type="button" data-lang="en">EN</button>
@@ -840,7 +834,6 @@
         <div class="actions">
           <a class="btn primary" href="#projects" data-de="Projekte ansehen" data-en="View projects">Projekte ansehen</a>
           <a class="btn" href="#contact" data-de="Kontakt ansehen" data-en="View contact">Kontakt ansehen</a>
-          <a class="btn" href="./lebenslauf.pdf" target="_blank" rel="noreferrer" data-de="Lebenslauf öffnen" data-en="Open CV">Lebenslauf öffnen</a>
         </div>
       </div>
 
@@ -860,15 +853,21 @@
       <div class="grid three">
         <article class="card">
           <h3 data-de="Das bin ich" data-en="Who I am">Das bin ich</h3>
-          <p data-de="Ich bin Lea, 22 Jahre alt, studiere IT-Sicherheit und mag es, technische Themen nicht nur theoretisch zu verstehen, sondern praktisch umzusetzen." data-en="I am Lea, 22 years old, studying IT Security. I like understanding technical topics and turning them into practical solutions.">Ich bin Lea, 22 Jahre alt, studiere IT-Sicherheit und mag es, technische Themen nicht nur theoretisch zu verstehen, sondern praktisch umzusetzen.</p>
+          <p data-de="Ich bin Lea, 22 Jahre alt, studiere IT-Sicherheit und mag es, technische Themen nicht nur theoretisch zu verstehen, sondern praktisch umzusetzen." data-en="I am Lea, 22 years old, studying IT Security. I like understanding technical topics and turning them into practical solutions.">
+            Ich bin Lea, 22 Jahre alt, studiere IT-Sicherheit und mag es, technische Themen nicht nur theoretisch zu verstehen, sondern praktisch umzusetzen.
+          </p>
         </article>
         <article class="card">
           <h3 data-de="Praxis im IT-Support" data-en="Practical IT support experience">Praxis im IT-Support</h3>
-          <p data-de="In meiner Werkstudentenstelle arbeite ich mit Arbeitsplatzkonfiguration, OS-Deployment, Netzwerkeinbindung, Peripherie und strukturierter Fehleranalyse." data-en="In my working student role, I work on workstation setup, OS deployment, network integration, peripherals and structured troubleshooting.">In meiner Werkstudentenstelle arbeite ich mit Arbeitsplatzkonfiguration, OS-Deployment, Netzwerkeinbindung, Peripherie und strukturierter Fehleranalyse.</p>
+          <p data-de="In meiner Werkstudentenstelle arbeite ich mit Arbeitsplatzkonfiguration, OS-Deployment, Netzwerkeinbindung, Peripherie und strukturierter Fehleranalyse." data-en="In my working student role, I work on workstation setup, OS deployment, network integration, peripherals and structured troubleshooting.">
+            In meiner Werkstudentenstelle arbeite ich mit Arbeitsplatzkonfiguration, OS-Deployment, Netzwerkeinbindung, Peripherie und strukturierter Fehleranalyse.
+          </p>
         </article>
         <article class="card">
           <h3 data-de="Was mich interessiert" data-en="What I am interested in">Was mich interessiert</h3>
-          <p data-de="Besonders spannend finde ich Web-Security, Netzwerke, Kryptografie und kleine Tools, die technische Zusammenhänge verständlich sichtbar machen." data-en="I am especially interested in web security, networks, cryptography and small tools that make technical topics easier to understand.">Besonders spannend finde ich Web-Security, Netzwerke, Kryptografie und kleine Tools, die technische Zusammenhänge verständlich sichtbar machen.</p>
+          <p data-de="Besonders spannend finde ich Web-Security, Netzwerke, Kryptografie und kleine Tools, die technische Zusammenhänge verständlich sichtbar machen." data-en="I am especially interested in web security, networks, cryptography and small tools that make technical topics easier to understand.">
+            Besonders spannend finde ich Web-Security, Netzwerke, Kryptografie und kleine Tools, die technische Zusammenhänge verständlich sichtbar machen.
+          </p>
         </article>
       </div>
     </section>
@@ -884,7 +883,7 @@
           <button class="tag" data-info-de="C und C++ kenne ich aus dem Studium, besonders für Grundlagen, Speicherverständnis und objektorientierte Konzepte." data-info-en="I know C and C++ from my studies, especially for fundamentals, memory concepts and object-oriented programming.">C / C++</button>
           <button class="tag" data-info-de="HTML, CSS und JavaScript nutze ich für Webformulare, Portfolios und interaktive Frontend-Demos." data-info-en="I use HTML, CSS and JavaScript for web forms, portfolios and interactive frontend demos.">HTML / CSS / JavaScript</button>
           <button class="tag" data-info-de="Linux und CLI nutze ich für technische Analyse, Dateisysteme, Prozesse und typische Admin-Aufgaben." data-info-en="I use Linux and the command line for technical analysis, file systems, processes and common admin tasks.">Linux / CLI</button>
-          <button class="tag" data-info-de="Git nutze ich zur Versionskontrolle und für nachvollziehbare Projektarbeit auf GitHub." data-info-en="I use Git for version control and transparent project work on GitHub.">Git</button>
+          <button class="tag" data-info-de="Git und GitHub nutze ich zur Versionskontrolle und für nachvollziehbare Projektarbeit im Team." data-info-en="I use Git and GitHub for version control and transparent teamwork.">Git / GitHub</button>
           <button class="tag" data-info-de="Netzwerke sind für mich ein wichtiger Bereich in der IT-Security, zum Beispiel Protokolle, Kommunikation und Fehlersuche." data-info-en="Networks are an important part of IT security for me, including protocols, communication and troubleshooting.">Netzwerke</button>
           <button class="tag" data-info-de="Kryptografie interessiert mich besonders, weil sie die Grundlage sicherer Kommunikation bildet." data-info-en="I am especially interested in cryptography because it is a foundation for secure communication.">Kryptografie</button>
         </div>
@@ -895,67 +894,136 @@
     <section id="projects">
       <div class="section-title">
         <h2 data-de="Projekte" data-en="Projects">Projekte</h2>
-        <p data-de="Das sind Projekte, die ich bisher im Studium, in eigenen Übungen oder aktuell im Team umgesetzt habe." data-en="These are projects I have worked on during my studies, in my own exercises or currently in a team.">Das sind Projekte, die ich bisher im Studium, in eigenen Übungen oder aktuell im Team umgesetzt habe.</p>
+        <p data-de="Das sind Projekte, die ich bisher im Studium, in universitären Teamarbeiten oder in eigenen Übungen umgesetzt habe." data-en="These are projects I have worked on during my studies, in university team projects or in my own exercises.">
+          Das sind Projekte, die ich bisher im Studium, in universitären Teamarbeiten oder in eigenen Übungen umgesetzt habe.
+        </p>
       </div>
 
       <div class="grid two">
         <article class="card project-card" tabindex="0">
           <h3 data-de="Online-Lebenslauf Website" data-en="Online CV website">Online-Lebenslauf Website</h3>
-          <p data-de="Diese Portfolio-Website ist mein kleiner Online-Lebenslauf. Ich habe sie mit HTML, CSS und JavaScript erstellt." data-en="This portfolio website is my small online CV. I built it with HTML, CSS and JavaScript.">Diese Portfolio-Website ist mein kleiner Online-Lebenslauf. Ich habe sie mit HTML, CSS und JavaScript erstellt.</p>
+          <p data-de="Diese Portfolio-Website ist mein kleiner Online-Lebenslauf. Ich habe sie mit HTML, CSS und JavaScript erstellt." data-en="This portfolio website is my small online CV. I built it with HTML, CSS and JavaScript.">
+            Diese Portfolio-Website ist mein kleiner Online-Lebenslauf. Ich habe sie mit HTML, CSS und JavaScript erstellt.
+          </p>
           <div class="project-meta">
             <span class="mini-tag">HTML</span>
             <span class="mini-tag">CSS</span>
             <span class="mini-tag">JavaScript</span>
           </div>
           <div class="project-details">
-            <p data-de="Enthält klickbare Skill-Tags, Projektkarten, eine kleine Security-Demo und eine Mini-Challenge. Damit möchte ich meine Bewerbung persönlicher machen und zeigen, dass ich einfache Web-Interaktionen selbst umsetzen kann." data-en="It includes clickable skill tags, project cards, a small security demo and a mini challenge. The goal is to make my application more personal and show that I can build simple web interactions myself.">Enthält klickbare Skill-Tags, Projektkarten, eine kleine Security-Demo und eine Mini-Challenge. Damit möchte ich meine Bewerbung persönlicher machen und zeigen, dass ich einfache Web-Interaktionen selbst umsetzen kann.</p>
+            <p data-de="Enthält klickbare Skill-Tags, Projektkarten, eine kleine Security-Demo und eine Mini-Challenge. Damit möchte ich meine Bewerbung persönlicher machen und zeigen, dass ich einfache Web-Interaktionen selbst umsetzen kann." data-en="It includes clickable skill tags, project cards, a small security demo and a mini challenge. The goal is to make my application more personal and show that I can build simple web interactions myself.">
+              Enthält klickbare Skill-Tags, Projektkarten, eine kleine Security-Demo und eine Mini-Challenge. Damit möchte ich meine Bewerbung persönlicher machen und zeigen, dass ich einfache Web-Interaktionen selbst umsetzen kann.
+            </p>
           </div>
         </article>
 
         <article class="card project-card" tabindex="0">
           <h3 data-de="Schiffe versenken" data-en="Battleships game">Schiffe versenken</h3>
-          <p data-de="Ein kleines Spielprojekt aus dem Programmierumfeld, bei dem Spiellogik und Benutzereingaben umgesetzt wurden." data-en="A small programming project where I implemented game logic and user input.">Ein kleines Spielprojekt aus dem Programmierumfeld, bei dem Spiellogik und Benutzereingaben umgesetzt wurden.</p>
+          <p data-de="Ein kleines Spielprojekt aus dem Programmierumfeld, bei dem Spiellogik und Benutzereingaben umgesetzt wurden." data-en="A small programming project where I implemented game logic and user input.">
+            Ein kleines Spielprojekt aus dem Programmierumfeld, bei dem Spiellogik und Benutzereingaben umgesetzt wurden.
+          </p>
           <div class="project-meta">
             <span class="mini-tag" data-de="Programmierung" data-en="Programming">Programmierung</span>
             <span class="mini-tag" data-de="Logik" data-en="Logic">Logik</span>
             <span class="mini-tag" data-de="Game Basics" data-en="Game basics">Game Basics</span>
           </div>
           <div class="project-details">
-            <p data-de="Bei diesem Projekt ging es vor allem darum, Spielregeln in Code zu übersetzen, Zustände zu verwalten und Benutzeraktionen sinnvoll zu verarbeiten." data-en="The focus was on translating game rules into code, managing states and handling user actions in a clear way.">Bei diesem Projekt ging es vor allem darum, Spielregeln in Code zu übersetzen, Zustände zu verwalten und Benutzeraktionen sinnvoll zu verarbeiten.</p>
+            <p data-de="Bei diesem Projekt ging es vor allem darum, Spielregeln in Code zu übersetzen, Zustände zu verwalten und Benutzeraktionen sinnvoll zu verarbeiten." data-en="The focus was on translating game rules into code, managing states and handling user actions in a clear way.">
+              Bei diesem Projekt ging es vor allem darum, Spielregeln in Code zu übersetzen, Zustände zu verwalten und Benutzeraktionen sinnvoll zu verarbeiten.
+            </p>
+          </div>
+        </article>
+
+        <article class="card project-card" tabindex="0">
+          <h3 data-de="Nahrungserfassungssoftware" data-en="Nutrition tracking software">Nahrungserfassungssoftware</h3>
+          <p data-de="Ein Projekt aus dem Modul Softwareentwicklung, bei dem eine Anwendung zur Erfassung und Verwaltung von Lebensmitteln und Mahlzeiten umgesetzt wurde." data-en="A software development project focused on building an application for tracking and managing food items and meals.">
+            Ein Projekt aus dem Modul Softwareentwicklung, bei dem eine Anwendung zur Erfassung und Verwaltung von Lebensmitteln und Mahlzeiten umgesetzt wurde.
+          </p>
+          <div class="project-meta">
+            <span class="mini-tag" data-de="Softwareentwicklung" data-en="Software development">Softwareentwicklung</span>
+            <span class="mini-tag">GitHub</span>
+            <span class="mini-tag" data-de="Teamprojekt" data-en="Team project">Teamprojekt</span>
+          </div>
+          <div class="project-details">
+            <p data-de="Im Fokus standen die strukturierte Umsetzung von Anforderungen, die Arbeit mit GitHub im Team und die Entwicklung einer übersichtlichen Anwendung zur Verwaltung von Nutzereingaben und Daten." data-en="The focus was on structured requirement implementation, teamwork with GitHub and building a clear application for managing user input and data.">
+              Im Fokus standen die strukturierte Umsetzung von Anforderungen, die Arbeit mit GitHub im Team und die Entwicklung einer übersichtlichen Anwendung zur Verwaltung von Nutzereingaben und Daten.
+            </p>
+          </div>
+        </article>
+
+        <article class="card project-card" tabindex="0">
+          <h3 data-de="Zeiterfassungssoftware" data-en="Time tracking software">Zeiterfassungssoftware</h3>
+          <p data-de="Ein weiteres Projekt aus dem Bereich Softwareentwicklung, bei dem eine Anwendung zur Erfassung und Auswertung von Arbeitszeiten entwickelt wurde." data-en="Another software development project in which an application for recording and evaluating working hours was developed.">
+            Ein weiteres Projekt aus dem Bereich Softwareentwicklung, bei dem eine Anwendung zur Erfassung und Auswertung von Arbeitszeiten entwickelt wurde.
+          </p>
+          <div class="project-meta">
+            <span class="mini-tag" data-de="Softwareentwicklung" data-en="Software development">Softwareentwicklung</span>
+            <span class="mini-tag">Git</span>
+            <span class="mini-tag" data-de="Anwendungslogik" data-en="Application logic">Anwendungslogik</span>
+          </div>
+          <div class="project-details">
+            <p data-de="Bei diesem Projekt ging es vor allem darum, Anforderungen in Programmfunktionen zu übersetzen, Daten nachvollziehbar zu verwalten und eine praktische Lösung für einen realistischen Anwendungsfall zu entwickeln." data-en="The main goal was to translate requirements into program functions, manage data transparently and develop a practical solution for a realistic use case.">
+              Bei diesem Projekt ging es vor allem darum, Anforderungen in Programmfunktionen zu übersetzen, Daten nachvollziehbar zu verwalten und eine praktische Lösung für einen realistischen Anwendungsfall zu entwickeln.
+            </p>
+          </div>
+        </article>
+
+        <article class="card project-card" tabindex="0">
+          <h3 data-de="Webshop-Entwicklung" data-en="Webshop development">Webshop-Entwicklung</h3>
+          <p data-de="Ein Projekt aus dem Modul Softwaretechnik, bei dem ein Webshop geplant und entwickelt wurde." data-en="A software engineering project in which a webshop was planned and developed.">
+            Ein Projekt aus dem Modul Softwaretechnik, bei dem ein Webshop geplant und entwickelt wurde.
+          </p>
+          <div class="project-meta">
+            <span class="mini-tag" data-de="Softwaretechnik" data-en="Software engineering">Softwaretechnik</span>
+            <span class="mini-tag">Web</span>
+            <span class="mini-tag">GitHub</span>
+          </div>
+          <div class="project-details">
+            <p data-de="Der Schwerpunkt lag auf der Planung und Umsetzung typischer Webshop-Funktionen sowie auf strukturierter Projektarbeit, nachvollziehbarer Entwicklung und Zusammenarbeit im Team." data-en="The focus was on planning and implementing typical webshop functions as well as structured project work, transparent development and teamwork.">
+              Der Schwerpunkt lag auf der Planung und Umsetzung typischer Webshop-Funktionen sowie auf strukturierter Projektarbeit, nachvollziehbarer Entwicklung und Zusammenarbeit im Team.
+            </p>
           </div>
         </article>
 
         <article class="card project-card" tabindex="0">
           <h3 data-de="IT-Security Projekt: Makro-Angriff im Labor" data-en="IT security project: macro attack in a lab">IT-Security Projekt: Makro-Angriff im Labor</h3>
-          <p data-de="Gemeinsam mit einem Mitstudenten habe ich in einem autorisierten Laborprojekt untersucht, wie Makros als Angriffsweg genutzt werden können." data-en="Together with another student, I explored how macros can be used as an attack path in an authorized lab project.">Gemeinsam mit einem Mitstudenten habe ich in einem autorisierten Laborprojekt untersucht, wie Makros als Angriffsweg genutzt werden können.</p>
+          <p data-de="Gemeinsam mit einem Mitstudenten habe ich in einem autorisierten Laborprojekt untersucht, wie Makros als Angriffsweg genutzt werden können." data-en="Together with another student, I explored how macros can be used as an attack path in an authorized lab project.">
+            Gemeinsam mit einem Mitstudenten habe ich in einem autorisierten Laborprojekt untersucht, wie Makros als Angriffsweg genutzt werden können.
+          </p>
           <div class="project-meta">
             <span class="mini-tag">IT-Security</span>
             <span class="mini-tag" data-de="Makros" data-en="Macros">Makros</span>
             <span class="mini-tag">Awareness</span>
           </div>
           <div class="project-details">
-            <p data-de="Der Fokus lag darauf, Angriffsmethoden in einer kontrollierten Umgebung zu verstehen und daraus Sicherheitsmaßnahmen und Risiken abzuleiten." data-en="The focus was on understanding attack methods in a controlled environment and deriving security measures and risks from them.">Der Fokus lag darauf, Angriffsmethoden in einer kontrollierten Umgebung zu verstehen und daraus Sicherheitsmaßnahmen und Risiken abzuleiten.</p>
+            <p data-de="Der Fokus lag darauf, Angriffsmethoden in einer kontrollierten Umgebung zu verstehen und daraus Sicherheitsmaßnahmen und Risiken abzuleiten." data-en="The focus was on understanding attack methods in a controlled environment and deriving security measures and risks from them.">
+              Der Fokus lag darauf, Angriffsmethoden in einer kontrollierten Umgebung zu verstehen und daraus Sicherheitsmaßnahmen und Risiken abzuleiten.
+            </p>
           </div>
         </article>
 
         <article class="card project-card" tabindex="0">
           <h3 data-de="Aktuelles Projekt: Security-Website für Märklin" data-en="Current project: security website for Märklin">Aktuelles Projekt: Security-Website für Märklin</h3>
-          <p data-de="Aktuell arbeiten wir an einer Website, die Sicherheitsaspekte von Hardware-Geräten testet und übersichtlich darstellt." data-en="We are currently working on a website that tests and presents security aspects of hardware devices.">Aktuell arbeiten wir an einer Website, die Sicherheitsaspekte von Hardware-Geräten testet und übersichtlich darstellt.</p>
+          <p data-de="Aktuell arbeiten wir an einer Website, die Sicherheitsaspekte von Hardware-Geräten testet und übersichtlich darstellt." data-en="We are currently working on a website that tests and presents security aspects of hardware devices.">
+            Aktuell arbeiten wir an einer Website, die Sicherheitsaspekte von Hardware-Geräten testet und übersichtlich darstellt.
+          </p>
           <div class="project-meta">
             <span class="mini-tag">Web</span>
             <span class="mini-tag">Hardware Security</span>
             <span class="mini-tag" data-de="Teamprojekt" data-en="Team project">Teamprojekt</span>
           </div>
           <div class="project-details">
-            <p data-de="Ziel ist eine verständliche Oberfläche, über die sicherheitsrelevante Informationen zu Hardware-Geräten geprüft, dokumentiert und nachvollziehbar angezeigt werden können." data-en="The goal is a clear interface where security-related information about hardware devices can be checked, documented and displayed in a understandable way.">Ziel ist eine verständliche Oberfläche, über die sicherheitsrelevante Informationen zu Hardware-Geräten geprüft, dokumentiert und nachvollziehbar angezeigt werden können.</p>
+            <p data-de="Ziel ist eine verständliche Oberfläche, über die sicherheitsrelevante Informationen zu Hardware-Geräten geprüft, dokumentiert und nachvollziehbar angezeigt werden können." data-en="The goal is a clear interface where security-related information about hardware devices can be checked, documented and displayed in an understandable way.">
+              Ziel ist eine verständliche Oberfläche, über die sicherheitsrelevante Informationen zu Hardware-Geräten geprüft, dokumentiert und nachvollziehbar angezeigt werden können.
+            </p>
           </div>
         </article>
       </div>
 
       <div class="card" style="margin-top:18px;">
         <h3 data-de="Mini-Demo: Security Check" data-en="Mini demo: security check">Mini-Demo: Security Check</h3>
-        <p style="margin-bottom:14px;" data-de="URL eingeben – die Analyse prüft sofort was direkt aus der Adresse erkennbar ist: HTTPS, Domain, verdächtige Zeichen, URL-Länge und ob der Server antwortet." data-en="Enter a URL – the analyser instantly checks what is readable from the address itself: HTTPS, domain, suspicious characters, URL length and whether the server responds.">
-          URL eingeben – die Analyse prüft sofort was direkt aus der Adresse erkennbar ist: HTTPS, Domain, verdächtige Zeichen, URL-Länge und ob der Server antwortet.
+        <p style="margin-bottom:14px;" data-de="URL eingeben und die Analyse prüft sofort, was direkt aus der Adresse erkennbar ist: HTTPS, Domain, verdächtige Zeichen, URL-Länge und ob der Server antwortet." data-en="Enter a URL and the analyser instantly checks what is readable from the address itself: HTTPS, domain, suspicious characters, URL length and whether the server responds.">
+          URL eingeben und die Analyse prüft sofort, was direkt aus der Adresse erkennbar ist: HTTPS, Domain, verdächtige Zeichen, URL-Länge und ob der Server antwortet.
         </p>
         <div class="scan-demo">
           <input id="urlInput" type="text" placeholder="https://example.com" data-placeholder-de="https://example.com" data-placeholder-en="https://example.com" />
@@ -1016,7 +1084,9 @@
     <section id="contact">
       <div class="section-title">
         <h2 data-de="Kontakt" data-en="Contact">Kontakt</h2>
-        <p data-de="Ich suche aktuell eine Praxissemesterstelle im Bereich IT-Security, IT-Support, Web oder Systemadministration." data-en="I am currently looking for an internship semester position in IT security, IT support, web or system administration.">Ich suche aktuell eine Praxissemesterstelle im Bereich IT-Security, IT-Support, Web oder Systemadministration.</p>
+        <p data-de="Ich suche aktuell eine Praxissemesterstelle im Bereich IT-Security, Softwareentwicklung, Web, Robotik oder technische Systeme." data-en="I am currently looking for an internship semester position in IT security, software development, web, robotics or technical systems.">
+          Ich suche aktuell eine Praxissemesterstelle im Bereich IT-Security, Softwareentwicklung, Web, Robotik oder technische Systeme.
+        </p>
       </div>
       <div class="grid two">
         <div class="card project-card" id="contactCard" tabindex="0">
@@ -1024,20 +1094,19 @@
           <p data-de="Klicken zum Aufklappen." data-en="Click to open.">Klicken zum Aufklappen.</p>
           <div class="project-details">
             <p style="margin-bottom:10px; color: var(--muted);" data-de="E-Mail" data-en="Email">E-Mail</p>
-            <p style="margin-bottom:18px;"><a href="mailto:leatruoiolo@gmail.com" onclick="event.stopPropagation()" style="color: var(--text); text-decoration: none; border-bottom: 1px solid var(--muted);">leatruoiolo@gmail.com</a></p>
-            <p style="margin-bottom:10px; color: var(--muted);" data-de="Telefon" data-en="Phone">Telefon</p>
-            <p><a href="tel:+4915223593729" onclick="event.stopPropagation()" style="color: var(--text); text-decoration: none; border-bottom: 1px solid var(--muted);">0152 23593729</a></p>
+            <p style="margin-bottom:18px;">
+              <a href="mailto:leatruoiolo@gmail.com" onclick="event.stopPropagation()" style="color: var(--text); text-decoration: none; border-bottom: 1px solid var(--muted);">leatruoiolo@gmail.com</a>
+            </p>
           </div>
         </div>
 
         <div class="card">
-          <h3 data-de="Links & Unterlagen" data-en="Links & documents">Links & Unterlagen</h3>
-          <p style="margin-bottom:18px; color: var(--muted);" data-de="Hier finden Sie meine wichtigsten Links und Dokumente für die Bewerbung." data-en="Here you can find my most important links and application documents.">
-            Hier finden Sie meine wichtigsten Links und Dokumente für die Bewerbung.
+          <h3 data-de="Weitere Infos" data-en="More info">Weitere Infos</h3>
+          <p style="margin-bottom:18px; color: var(--muted);" data-de="Hier finden Sie weitere Informationen zu meinem Online-Lebenslauf und meinen Projekten." data-en="Here you can find more information about my online CV and my projects.">
+            Hier finden Sie weitere Informationen zu meinem Online-Lebenslauf und meinen Projekten.
           </p>
           <div class="actions">
-            <a class="btn" href="./lebenslauf.pdf" target="_blank" rel="noreferrer" data-de="Lebenslauf" data-en="CV">Lebenslauf</a>
-<a class="btn" href="#top" data-de="Nach oben" data-en="Back to top">Nach oben</a>
+            <a class="btn" href="#top" data-de="Nach oben" data-en="Back to top">Nach oben</a>
           </div>
         </div>
       </div>
@@ -1122,58 +1191,49 @@
 
       let url;
       try { url = new URL(urlStr); } catch {
-        return [{ status: 'bad', label: de ? 'Fehler' : 'Error', text: de ? 'Ungültige URL – bitte prüfen.' : 'Invalid URL – please check.' }];
+        return [{ status: 'bad', label: de ? 'Fehler' : 'Error', text: de ? 'Ungültige URL, bitte prüfen.' : 'Invalid URL, please check.' }];
       }
 
-      // Basis-Validierung: echte Domain braucht mindestens einen Punkt
       if (!url.hostname.includes('.')) {
-        return [{ status: 'bad', label: de ? 'Keine Domain' : 'No domain', text: de ? 'Das sieht nicht wie eine echte Adresse aus – bitte z. B. https://example.com eingeben.' : 'This doesn\'t look like a real address – try e.g. https://example.com.' }];
+        return [{ status: 'bad', label: de ? 'Keine Domain' : 'No domain', text: de ? 'Das sieht nicht wie eine echte Adresse aus, bitte zum Beispiel https://example.com eingeben.' : 'This does not look like a real address, try e.g. https://example.com.' }];
       }
 
-      // 1. HTTPS
       if (url.protocol === 'https:') {
-        results.push({ status: 'ok', label: 'HTTPS', text: de ? 'HTTPS im Link angegeben – Verschlüsselung erwartet' : 'HTTPS specified in link – encryption expected' });
+        results.push({ status: 'ok', label: 'HTTPS', text: de ? 'HTTPS im Link angegeben, Verschlüsselung erwartet' : 'HTTPS specified in link, encryption expected' });
       } else {
-        results.push({ status: 'bad', label: 'HTTPS', text: de ? 'Kein HTTPS – Daten werden unverschlüsselt übertragen' : 'No HTTPS – data sent unencrypted' });
+        results.push({ status: 'bad', label: 'HTTPS', text: de ? 'Kein HTTPS, Daten werden unverschlüsselt übertragen' : 'No HTTPS, data sent unencrypted' });
       }
 
-      // 2. IP statt Domain
       if (/^(\d{1,3}\.){3}\d{1,3}$/.test(url.hostname)) {
-        results.push({ status: 'warn', label: 'Domain', text: de ? 'IP-Adresse statt Domain – bei Phishing häufig' : 'IP address instead of domain – common in phishing' });
+        results.push({ status: 'warn', label: 'Domain', text: de ? 'IP-Adresse statt Domain, bei Phishing häufig' : 'IP address instead of domain, common in phishing' });
       } else {
         results.push({ status: 'ok', label: 'Domain', text: url.hostname });
       }
 
-      // 3. TLD
       const tld = '.' + url.hostname.split('.').pop().toLowerCase();
       if (SUSPICIOUS_TLDS.has(tld)) {
         results.push({ status: 'warn', label: 'TLD', text: de ? `„${tld}" wird oft für Phishing genutzt` : `"${tld}" is often used for phishing` });
       }
 
-      // 4. Subdomain-Tiefe
       const parts = url.hostname.split('.');
       if (parts.length > 3) {
-        results.push({ status: 'warn', label: de ? 'Subdomains' : 'Subdomains', text: de ? `${parts.length - 2} Subdomain-Ebenen – bei Phishing typisch` : `${parts.length - 2} subdomain levels – typical in phishing` });
+        results.push({ status: 'warn', label: de ? 'Subdomains' : 'Subdomains', text: de ? `${parts.length - 2} Subdomain-Ebenen, bei Phishing typisch` : `${parts.length - 2} subdomain levels, typical in phishing` });
       }
 
-      // 5. URL-Länge
       if (urlStr.length > 100) {
-        results.push({ status: 'warn', label: de ? 'URL-Länge' : 'URL length', text: de ? `${urlStr.length} Zeichen – ungewöhnlich lang` : `${urlStr.length} chars – unusually long` });
+        results.push({ status: 'warn', label: de ? 'URL-Länge' : 'URL length', text: de ? `${urlStr.length} Zeichen, ungewöhnlich lang` : `${urlStr.length} chars, unusually long` });
       } else {
-        results.push({ status: 'ok', label: de ? 'URL-Länge' : 'URL length', text: de ? `${urlStr.length} Zeichen – unauffällig` : `${urlStr.length} chars – looks normal` });
+        results.push({ status: 'ok', label: de ? 'URL-Länge' : 'URL length', text: de ? `${urlStr.length} Zeichen, unauffällig` : `${urlStr.length} chars, looks normal` });
       }
 
-      // 6. Sonderzeichen im Domain
       if (/[^a-zA-Z0-9\-.]/.test(url.hostname)) {
-        results.push({ status: 'warn', label: de ? 'Sonderzeichen' : 'Special chars', text: de ? 'Ungewöhnliche Zeichen im Domain – möglicher Homograph-Angriff' : 'Unusual chars in domain – possible homograph attack' });
+        results.push({ status: 'warn', label: de ? 'Sonderzeichen' : 'Special chars', text: de ? 'Ungewöhnliche Zeichen in der Domain, möglicher Homograph-Angriff' : 'Unusual chars in domain, possible homograph attack' });
       }
 
-      // 7. Nicht-Standard-Port
       if (url.port && !['80','443'].includes(url.port)) {
         results.push({ status: 'warn', label: 'Port', text: de ? `Nicht-Standard-Port ${url.port} erkannt` : `Non-standard port ${url.port} detected` });
       }
 
-      // 8. Erreichbarkeit (echter Fetch)
       try {
         const ctrl = new AbortController();
         const t = setTimeout(() => ctrl.abort(), 5000);
@@ -1181,10 +1241,13 @@
         clearTimeout(t);
         results.push({ status: 'ok', label: de ? 'Erreichbarkeit' : 'Reachability', text: de ? 'Server antwortet' : 'Server is responding' });
       } catch (e) {
-        results.push({ status: 'warn', label: de ? 'Erreichbarkeit' : 'Reachability',
+        results.push({
+          status: 'warn',
+          label: de ? 'Erreichbarkeit' : 'Reachability',
           text: e.name === 'AbortError'
-            ? (de ? 'Keine Antwort (Timeout nach 5s)' : 'No response (timeout after 5s)')
-            : (de ? 'Server nicht erreichbar' : 'Server not reachable') });
+            ? (de ? 'Keine Antwort, Timeout nach 5s' : 'No response, timeout after 5s')
+            : (de ? 'Server nicht erreichbar' : 'Server not reachable')
+        });
       }
 
       return results;
@@ -1332,7 +1395,6 @@
       }
     });
 
-    // ── Terminal Typewriter ──
     const terminalBody = document.getElementById('terminalBody');
     const PROMPT_HTML = '<span class="prompt">lea@portfolio:~$</span>';
 
@@ -1340,7 +1402,7 @@
       { kind: 'cmd', text: 'whoami' },
       { kind: 'out', de: 'Lea Truoiolo, 22 Jahre, IT-Security Studentin', en: 'Lea Truoiolo, 22 years old, IT Security student' },
       { kind: 'cmd', text: 'skills --top' },
-      { kind: 'out', de: 'Python · C/C++ · Linux · Git · Netzwerke · Kryptografie', en: 'Python · C/C++ · Linux · Git · Networks · Cryptography' },
+      { kind: 'out', de: 'Python · C/C++ · Linux · GitHub · Netzwerke · Kryptografie', en: 'Python · C/C++ · Linux · GitHub · Networks · Cryptography' },
       { kind: 'cmd', text: 'status' },
       { kind: 'out', de: 'Online-Lebenslauf geladen · Projekte verfügbar · Kontakt bereit', en: 'Online CV loaded · Projects available · Contact ready' },
     ];
@@ -1397,7 +1459,6 @@
 
     runTerminal(currentLanguage);
 
-    // ── Particle Background ──
     (function () {
       const canvas = document.getElementById('particleCanvas');
       const ctx = canvas.getContext('2d');
@@ -1448,7 +1509,6 @@
       tick();
     })();
 
-    // ── Scroll progress bar ──
     const scrollProgress = document.getElementById('scrollProgress');
     window.addEventListener('scroll', () => {
       const scrolled = window.scrollY;
@@ -1456,7 +1516,6 @@
       scrollProgress.style.width = total > 0 ? (scrolled / total * 100) + '%' : '0%';
     }, { passive: true });
 
-    // ── Hamburger menu ──
     const hamburgerBtn = document.getElementById('hamburgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
 
@@ -1474,7 +1533,6 @@
       });
     });
 
-    // ── Active nav highlighting ──
     const allSections = document.querySelectorAll('section[id]');
     const allNavLinks = document.querySelectorAll('.nav-links a[href^="#"]');
 
@@ -1490,7 +1548,6 @@
 
     allSections.forEach((section) => navObserver.observe(section));
 
-    // ── Scroll reveal animations ──
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -1503,7 +1560,7 @@
     document.querySelectorAll('.card, .terminal, .section-title').forEach((el) => {
       el.classList.add('reveal');
       if (el.getBoundingClientRect().top < window.innerHeight) {
-        el.classList.add('visible'); // already in view on load – show immediately
+        el.classList.add('visible');
       } else {
         revealObserver.observe(el);
       }
